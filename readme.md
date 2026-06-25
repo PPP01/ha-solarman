@@ -1,3 +1,19 @@
+> [!NOTE]
+> ## 🔱 Fork branch `deye-3p-extras` — Deye 3-phase (`deye_p3`) additions
+>
+> This branch is upstream **`main` plus** a small set of Deye 3-phase (`deye_p3.yaml`) fixes and controls, all verified on a live Deye Sun-12K. It exists so other Deye 3P owners can use these before they are merged upstream. `main` here is kept as a clean mirror of [davidrapan/ha-solarman](https://github.com/davidrapan/ha-solarman) — use that for the canonical version.
+>
+> | Change | Type | Upstream reference |
+> |---|---|---|
+> | Battery BMS serial numbers were byte-swapped (`reverse_bytes`) | fix | [PR #1099](https://github.com/davidrapan/ha-solarman/pull/1099), [issue #1098](https://github.com/davidrapan/ha-solarman/issues/1098) (related [#900](https://github.com/davidrapan/ha-solarman/issues/900) / [#931](https://github.com/davidrapan/ha-solarman/pull/931)) |
+> | Battery Power: sum BMS1 (`0x024E`) + BMS2 (`0x0253`) in dual-BMS parallel mode | fix | [PR #1061](https://github.com/davidrapan/ha-solarman/pull/1061) |
+> | Signal Island Mode — switch on `0x00B2` bit 8 (LCD "Advanced Settings") | feat | [PR #1100](https://github.com/davidrapan/ha-solarman/pull/1100) |
+> | Solar Arc Fault — switch on `0x00B5`; Clear Arc Fault — button writing `0x02` | feat | [PR #1100](https://github.com/davidrapan/ha-solarman/pull/1100) |
+>
+> Rebase onto upstream `main` periodically; drop a row once its PR is merged. Register mappings for the island/arc-fault controls were identified empirically (toggle the LCD checkbox, diff the raw holding registers) on a live Sun-12K.
+
+---
+
 # ⚡ Solarman Stick Logger
 
 [![License](https://img.shields.io/github/license/davidrapan/ha-solarman)](https://github.com/davidrapan/ha-solarman/blob/main/license)
