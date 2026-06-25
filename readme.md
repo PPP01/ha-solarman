@@ -6,7 +6,7 @@
 > | Change | Type | Upstream reference |
 > |---|---|---|
 > | Battery BMS serial numbers were byte-swapped (`reverse_bytes`) | fix | [PR #1099](https://github.com/davidrapan/ha-solarman/pull/1099), [issue #1098](https://github.com/davidrapan/ha-solarman/issues/1098) (related [#900](https://github.com/davidrapan/ha-solarman/issues/900) / [#931](https://github.com/davidrapan/ha-solarman/pull/931)) |
-> | Battery Power: sum BMS1 (`0x024E`) + BMS2 (`0x0253`) in dual-BMS parallel mode | fix | [PR #1061](https://github.com/davidrapan/ha-solarman/pull/1061) |
+> | Battery Power: sum BMS1 (`0x024E`) + BMS2 (`0x0253`) — **only relevant for dual-BMS models** (e.g. Deye HV 3-phase with two battery inputs); no-op on single-BMS inverters where `0x0253` reads `0` | fix | [PR #1061](https://github.com/davidrapan/ha-solarman/pull/1061) |
 > | Signal Island Mode — switch on `0x00B2` bit 8 (LCD "Advanced Settings") | feat | [PR #1100](https://github.com/davidrapan/ha-solarman/pull/1100) |
 > | Solar Arc Fault — switch on `0x00B5`; Clear Arc Fault — button writing `0x02` | feat | [PR #1100](https://github.com/davidrapan/ha-solarman/pull/1100) |
 >
